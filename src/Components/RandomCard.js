@@ -12,7 +12,6 @@ function RandomCard ({dbUrl, endPoint}) {
     .then(data => {
       setImage(data.drinks[0].strDrinkThumb)
       setName(data.drinks[0].strDrink)
-      console.log(name)
     })
     .catch(e => console.log(e))
   }, []) 
