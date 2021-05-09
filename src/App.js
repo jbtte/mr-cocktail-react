@@ -4,8 +4,8 @@ import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
 import Navbar from './Components/NavegationBar'
 import RandomCocktail from './Components/RandomCocktail'
 import FavoriteCocktail from './Components/FavoriteCocktail'
-import FavoriteDrink from './Components/FavoriteDrink'
-import RandomDrink from './Components/RandomDrink'
+import DrinkFavorite from './Components/DrinkFavorite'
+import DrinkRandom from './Components/DrinkRandom'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,11 +22,11 @@ function App() {
           <hr/>
           <RandomCocktail /> 
         </Route>
-        <Route exact path='/favorite/:name'>
-          <FavoriteDrink />
+        <Route exact path='/favorite/:id'>
+          <DrinkFavorite />
         </Route>
         <Route exact path='/random/:name'>
-          <RandomDrink/>
+          <DrinkRandom/>
         </Route>
       </Switch>
     </main>

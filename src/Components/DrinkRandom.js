@@ -2,7 +2,7 @@ import {useState, useEffect } from 'react'
 import {useParams} from "react-router-dom";
 import useFetch from './useFetch'
 
-import SingleDrink from './SingleDrink'
+import DrinkSingle from './DrinkSingle'
 
 export default function RandomDrink () {
   const {name} = useParams()
@@ -17,12 +17,22 @@ export default function RandomDrink () {
     .catch(e => console.log(e))
   }, [])
 
+  const ingredientsKeys = Object.keys(drink).filter(key =>  {
+    return key.match(/strIngredient\d/) && drink[key]
+  })
+
+  const ingredients = ingredientsKeys.map(key => {
+    const ingredient = drink[key]
+    const measure = drink["strMeasure" + key.slice(-1)]
+    return `${measure ? measure + " - " : ""} ${ingredient}`
+  })
 
   return (
-  <SingleDrink 
+  <DrinkSingle 
   image={drink.strDrinkThumb}
   name={drink.strDrink}
   instructions={drink.strInstructions}
+  ingredients = {ingredients}
   />
   )
 }

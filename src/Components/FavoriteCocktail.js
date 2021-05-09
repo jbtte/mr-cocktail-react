@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import useFetch from './useFetch.js'
 import { useEffect, useState } from 'react'
 import CocktailCard from './CocktailCard'
@@ -24,10 +26,15 @@ export default function FavoriteCocktail () {
   }, [])
     
   return (<div className = "d-flex justify-content-around">
+    
     {isLoading ? <Loader /> :  cocktailsList.map(cocktail =>{
       return (
+        <Link to={`/favorite/${cocktail._id}`}>
           <CocktailCard  name={cocktail.name}  key={cocktail._id}/>)
-      } )
+        </Link>
+        )
+      })
     }
-    </div>)
+  </div>)
 }
+ 
