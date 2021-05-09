@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CocktailCard from './CocktailCard'
 import useFetch from './useFetch.js'
 import { useEffect, useState } from "react"
@@ -16,9 +17,11 @@ function RandomCard ({dbUrl, endPoint}) {
     .catch(e => console.log(e))
   }, []) 
 
-  return(
+  return(<>
+    <Link to={`/random/${name}`}>
       <CocktailCard image={image} name={name} />
-  )
+    </Link>
+ </> )
 }
 
 export default RandomCard
