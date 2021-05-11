@@ -30,9 +30,11 @@ function NavegationBar () {
           <Button variant="outline-light" className="mx-2">Search</Button>
         </Form>
       </div>
+      <Link to="/favorites">
       <div className="mx-4">
       <Button variant="outline-warning">Create your Cocktail</Button>{' '}
       </div>
+      </Link>
     </Navbar>
 </>);
 }

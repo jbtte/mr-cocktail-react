@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
-import useFetch from './useFetch.js'
+import useFetch from '../helpers/useFetch' 
 import { useEffect, useState } from 'react'
-import CocktailCard from './CocktailCard'
-import Loader from './Loader'
+import CocktailCard from '../helpers/CocktailCard'
+import Loader from '../helpers/Loader'
 
 export default function FavoriteCocktail () {
   const cocktailDb = "http://127.0.0.1:3001/"
@@ -24,17 +26,25 @@ export default function FavoriteCocktail () {
       console.log("Once before component unmounted");
     }
   }, [])
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4
+    }
+  };
     
   return (<div className = "d-flex justify-content-around">
-    
-    {isLoading ? <Loader /> :  cocktailsList.map(cocktail =>{
-      return (
-        <Link to={`/favorite/${cocktail._id}`}>
-          <CocktailCard  name={cocktail.name}  key={cocktail._id}/>)
-        </Link>
-        )
-      })
-    }
+    <Carousel responsive={responsive} ssr={true} infinite={true} deviceType={"desktop"}>
+        {isLoading ? <Loader /> :  cocktailsList.map(cocktail =>{
+          return (<div>
+            <Link to={`/favorite/${cocktail._id}`}>
+              <CocktailCard  name={cocktail.name}  key={cocktail._id}/>
+            </Link>
+          </div>)
+          })
+        }
+    </Carousel>
   </div>)
 }
  

@@ -1,8 +1,8 @@
 import {useState, useEffect } from 'react'
 import {useParams} from "react-router-dom";
-import useFetch from './useFetch'
+import useFetch from '../helpers/useFetch'
 
-import DrinkSingle from './DrinkSingle'
+import DrinkSingle from '../helpers/DrinkSingle'
 
 export default function RandomDrink () {
   const {name} = useParams()

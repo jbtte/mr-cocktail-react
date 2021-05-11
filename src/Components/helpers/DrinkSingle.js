@@ -1,8 +1,8 @@
 import Image from 'react-bootstrap/Image'
 import Card from 'react-bootstrap/Card'
 
-import cocktailImage from '../Images/cocktailImage.jpg'
-import backgroundBar from '../Images/background-bar.jpeg'
+import cocktailImage from '../../Images/cocktailImage.jpg'
+import backgroundBar from '../../Images/background-bar.jpeg'
 
 export default function SingleDrink ({image, name, ingredients, instructions}) {
  const style = {

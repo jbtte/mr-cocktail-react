@@ -1,8 +1,10 @@
 import {useState, useEffect } from 'react'
 import {useParams} from "react-router-dom";
-import useFetch from './useFetch'
+import useFetch from '../helpers/useFetch' 
 
-import DrinkSingle from './DrinkSingle'
+import DrinkSingle from '../helpers/DrinkSingle'
+import AddDose from './AddDose'
+
 
 export default function RandomDrink () {
   const {id} = useParams()
@@ -27,12 +29,17 @@ export default function RandomDrink () {
   }
 
 
-  return (
-  <DrinkSingle 
-  image={drink.image}
-  name={drink.name}
-  // instructions={drink.strInstructions}
-  ingredients = {ingredients}
-  />
-  )
+  return (<>
+  <div>
+    <DrinkSingle 
+    image={drink.image}
+    name={drink.name}
+    // instructions={drink.strInstructions}
+    ingredients = {ingredients}
+    />
+  </div>
+  <div>
+    <AddDose cocktail={id} />
+  </div>
+ </> )
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import CocktailCard from './CocktailCard'
-import useFetch from './useFetch.js'
+import CocktailCard from '../helpers/CocktailCard'
+import useFetch from '../helpers/useFetch.js'
 import { useEffect, useState } from "react"
 
 function RandomCard ({dbUrl, endPoint}) {

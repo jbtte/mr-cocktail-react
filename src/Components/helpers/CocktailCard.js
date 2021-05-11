@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card'
-import cocktailImage from '../Images/cocktailImage.jpg'
+import cocktailImage from '../../Images/cocktailImage.jpg'
 
 function CocktailCard ({image, name}) {
 
