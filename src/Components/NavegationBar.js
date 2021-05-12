@@ -10,9 +10,10 @@ import logo from '../Images/logo.png'
 function NavegationBar () {
   return ( <>
     <Navbar bg="dark" variant="dark" className="d-flex justify-content-between">
-    <Link to="/">
-      <div className=" flex-grow-1 ">
-      <Navbar.Brand href="#home">
+    <Link to="/" >
+      <div className=" flex-grow-1 mx-4">
+        <div >
+      <Navbar.Brand href="#home" className = "d-flex">
         <img
           alt=""
           src={logo}
@@ -20,16 +21,12 @@ function NavegationBar () {
           height="40"
           className="d-inline-block align-top"
         /> {' '}
-        Cocktail Party
+        <h5 className="mx-3 mt-2">Cocktail Party</h5>
       </Navbar.Brand>
+        </div>
       </div>
       </Link>
-      <div>
-      <Form inline className="d-flex">
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-light" className="mx-2">Search</Button>
-        </Form>
-      </div>
+
       <Link to="/favorites">
       <div className="mx-4">
       <Button variant="outline-warning">Create your Cocktail</Button>{' '}

@@ -35,7 +35,7 @@ export default function AddDose({cocktail}) {
     .then(data => {
       console.log(data.message)
       setShowModal(true)
-
+      setReturnMessage(data.message)
     })
     .catch( e => console.log(e))
   }
@@ -44,18 +44,16 @@ export default function AddDose({cocktail}) {
     setIngredientChosen(event.target.value)
   }
   
-  return (<div className="col-4">
+  return (<div className="col-12">
       <Form>
         <Form.Group controlId="formBasicName">
-          <Form.Label>Measure</Form.Label>
           <Form.Control 
           type="text" 
           placeholder="Enter the quantity" 
           value={measure} 
             onChange={e =>setMeasure(e.target.value)}/>
         </Form.Group>
-        <Form.Group controlId="controlSelect">
-          <Form.Label>Ingredient</Form.Label>
+        <Form.Group controlId="controlSelect" className="mt-2">
           <Form.Control as="select" onChange={handleIngredientSelect}>
           {Object.keys(allIngredients).map((keyName, i) => {
             return <option value={allIngredients[keyName]} >{keyName}</option>
@@ -63,7 +61,7 @@ export default function AddDose({cocktail}) {
           }
           </Form.Control>
         </Form.Group>
-        <Button variant="primary" type="submit" className="mt-2" onClick={handleCreateDose}>
+        <Button variant="outline-warning" type="submit" className="mt-2 float-right" onClick={handleCreateDose}>
           Add a dose
         </Button>
       </Form>

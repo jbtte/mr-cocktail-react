@@ -22,7 +22,7 @@ function App() {
       <Switch>
         <Route exact path='/'>
           <FavoriteCocktail />
-          <hr/>
+          <hr style={{color: "white"}}/>
           <RandomCocktail /> 
         </Route>
         <Route exact path='/favorite/:id'>

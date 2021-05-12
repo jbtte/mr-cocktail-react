@@ -1,0 +1,14 @@
+.card-dark-background{
+  background-color: #292929;
+}
+
+.font-cursive{
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  font-size: 52px;
+}
+
+.bg-image{
+  height: "400px"; 
+  width: "1500px"
+}

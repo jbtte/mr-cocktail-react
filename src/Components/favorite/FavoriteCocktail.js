@@ -33,13 +33,26 @@ export default function FavoriteCocktail () {
       items: 4
     }
   };
+
+  const imageUrl = (buffer) => {
+    if (!buffer){
+      return null
+    }
+    const url =  btoa(new Uint8Array(buffer).reduce(function (data, byte) {
+      return data + String.fromCharCode(byte);
+  }, ''))
+  return `data:image/jpeg;base64, ${url}`
+  }
     
   return (<div className = "d-flex justify-content-around">
     <Carousel responsive={responsive} ssr={true} infinite={true} deviceType={"desktop"}>
         {isLoading ? <Loader /> :  cocktailsList.map(cocktail =>{
           return (<div>
             <Link to={`/favorite/${cocktail._id}`}>
-              <CocktailCard  name={cocktail.name}  key={cocktail._id}/>
+              <CocktailCard  
+              name={cocktail.name}  
+              key={cocktail._id}
+              image={cocktail.image ? imageUrl(cocktail.image.data) : ""} />
             </Link>
           </div>)
           })

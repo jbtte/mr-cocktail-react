@@ -28,7 +28,7 @@ export default function AddIngredient () {
   
 
   return (<>
-    <Card className="border-0 col-5">
+    <Card className="border-0 col-5 p-4" bg={'dark'} text={"white"}>
     <Form>
         <Form.Group controlId="formBasicIngredientName">
           <Form.Label>Ingredient Name</Form.Label>

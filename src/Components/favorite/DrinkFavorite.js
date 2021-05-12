@@ -6,7 +6,7 @@ import DrinkSingle from '../helpers/DrinkSingle'
 import AddDose from './AddDose'
 
 
-export default function RandomDrink () {
+export default function DrinkFavorite () {
   const {id} = useParams()
   const {get} = useFetch('http://127.0.0.1:3001/cocktails/')
   const [drink, setDrink ] = useState({})
@@ -15,6 +15,7 @@ export default function RandomDrink () {
     get(id)
     .then(data => {
       setDrink(data)
+      console.log(data)
     })
     .catch(e => console.log(e))
   }, [])
@@ -28,18 +29,24 @@ export default function RandomDrink () {
     }) 
   }
 
+  const imageUrl = (buffer) => {
+    if (!buffer){
+      return null
+    }
+    const url =  btoa(new Uint8Array(buffer).reduce(function (data, byte) {
+      return data + String.fromCharCode(byte);
+  }, ''))
+  return `data:image/jpeg;base64, ${url}`
+  }
 
   return (<>
   <div>
     <DrinkSingle 
-    image={drink.image}
+    image={drink.image ? imageUrl(drink.image.data) : "" }
     name={drink.name}
-    // instructions={drink.strInstructions}
-    ingredients = {ingredients}
+   id = {id}
+   ingredients={ingredients}
     />
-  </div>
-  <div>
-    <AddDose cocktail={id} />
   </div>
  </> )
 }

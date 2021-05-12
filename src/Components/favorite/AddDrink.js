@@ -58,7 +58,7 @@ export default function AddDrink () {
   }
   
   return (<>
-    <Card className="border-0 col-5">
+    <Card className="border-0 p-4 col-5" bg={'dark'} text={"white"}>
       <Form>
         <Form.Group controlId="formBasicName">
           <Form.Label>Drink Name</Form.Label>

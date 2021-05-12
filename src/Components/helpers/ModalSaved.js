@@ -13,7 +13,7 @@ export default function ModalSaved ({name, modal}) {
   return (
     <Modal show={show}  onHide={hideModal}>
       <Modal.Body>
-        <p>{name} was saved</p>
+        <p>{name}</p>
       </Modal.Body>
 
       <Modal.Footer>
